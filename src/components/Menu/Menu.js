@@ -6,7 +6,7 @@ const Menu = () => {
   return (
     <GeneralContainer>
       <Wrapper>
-        <Properties></Properties>
+        <Properties />
       </Wrapper>
     </GeneralContainer>
   );
