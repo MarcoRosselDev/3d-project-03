@@ -4,7 +4,9 @@ import { GeneralContainer, Wrapper } from "./Menu.elements";
 const Menu = () => {
   return (
     <GeneralContainer>
-      <Wrapper></Wrapper>
+      <Wrapper>
+        <h1>Menu</h1>
+      </Wrapper>
     </GeneralContainer>
   );
 };
