@@ -10,7 +10,7 @@ export const PropertiesWrapper = styled.div`
   margin-top: 4rem;
   display: flex;
   justify-content: center;
-  flex-direction: colum;
+  flex-direction: column;
   h1 {
     width: 100%;
     font-family: "Raleway", sans-serif;
