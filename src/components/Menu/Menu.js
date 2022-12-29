@@ -1,11 +1,12 @@
 import React from "react";
 import { GeneralContainer, Wrapper } from "./Menu.elements";
+import Properties from "../Properties/Properties";
 
 const Menu = () => {
   return (
     <GeneralContainer>
       <Wrapper>
-        <h1>Menu</h1>
+        <Properties></Properties>
       </Wrapper>
     </GeneralContainer>
   );
