@@ -1,7 +1,12 @@
 import React from "react";
+import { GeneralContainer, Wrapper } from "./Menu.elements";
 
 const Menu = () => {
-  return <div>Menu</div>;
+  return (
+    <GeneralContainer>
+      <Wrapper></Wrapper>
+    </GeneralContainer>
+  );
 };
 
 export default Menu;
