@@ -15,9 +15,9 @@ const Ring = () => {
     //Scene, camera, renderer
     const scene = new THREE.Scene();
     scene.background = null;
-    const camera = new THREE.PerspectiveCamera(25, width / height, 0.1, 100);
+    const camera = new THREE.PerspectiveCamera(25, width / height, 0.1, 1000);
     scene.add(camera);
-    camera.position.set(5, 5, 5);
+    camera.position.set(100, 100, 100);
     camera.lookAt(new THREE.Vector3());
 
     const renderer = new THREE.WebGLRenderer({ alpha: true });
@@ -45,6 +45,19 @@ const Ring = () => {
     gltfLoader.load("./model/RingDraco/ringDraco.gltf", (gltf) => {
       scene.add(gltf.scene);
     });
+
+    // Lights
+
+    const ambientalLight = new THREE.AmbientLight(0xffffff, 1);
+    scene.add(ambientalLight);
+
+    const poinLights = new THREE.DirectionalLight(0xffffff, 20);
+    poinLights.position.set(100, 100, 100);
+    scene.add(poinLights);
+
+    const poinLights2 = new THREE.DirectionalLight(0xffffff, 20);
+    poinLights2.position.set(-100, -100, -100);
+    scene.add(poinLights2);
 
     //Animate the scene
     const animate = () => {
