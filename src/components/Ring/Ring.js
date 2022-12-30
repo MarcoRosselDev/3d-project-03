@@ -1,6 +1,8 @@
 import { useRef, useEffect } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 
 const Ring = () => {
   const mountRef = useRef(null);
@@ -34,6 +36,16 @@ const Ring = () => {
     };
     window.addEventListener("resize", resize);
 
+    // Loaders
+    const dracoLoader = new DRACOLoader();
+    dracoLoader.setDecoderPath("./draco/");
+
+    const gltfLoader = new GLTFLoader();
+    gltfLoader.setDRACOLoader(dracoLoader);
+    gltfLoader.load("./model/RingDraco/ringDraco.gltf", (gltf) => {
+      scene.add(gltf.scene);
+    });
+
     //Animate the scene
     const animate = () => {
       orbitControls.update();
@@ -41,13 +53,6 @@ const Ring = () => {
       requestAnimationFrame(animate);
     };
     animate();
-
-    //cube
-    const cube = new THREE.Mesh(
-      new THREE.BoxBufferGeometry(1, 1, 1),
-      new THREE.MeshBasicMaterial()
-    );
-    scene.add(cube);
 
     return () => {
       window.removeEventListener("resize", resize);
