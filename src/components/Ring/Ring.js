@@ -6,6 +6,7 @@ import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 
 const Ring = ({ currentGem }) => {
   const mountRef = useRef(null);
+  const controls = useRef(null);
 
   console.log(currentGem);
 
@@ -76,6 +77,20 @@ const Ring = ({ currentGem }) => {
       }
       // scene.add(gltf.scene);
     });
+
+    // Controls
+    // Change gem
+    let currentGemScene = null;
+    const changeGem = (gemName) => {
+      for (let i = 0; i < gems.children.length; i++) {
+        if (gems.children[i].name.includes(gemName)) {
+          currentGemScene = gems.children[i];
+        }
+      }
+      scene.add(currentGemScene);
+    };
+
+    controls.current = { changeGem };
 
     // Lights
 
