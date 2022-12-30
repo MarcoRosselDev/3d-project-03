@@ -12,12 +12,13 @@ const Ring = () => {
 
     //Scene, camera, renderer
     const scene = new THREE.Scene();
+    scene.background = null;
     const camera = new THREE.PerspectiveCamera(25, width / height, 0.1, 100);
     scene.add(camera);
     camera.position.set(5, 5, 5);
     camera.lookAt(new THREE.Vector3());
 
-    const renderer = new THREE.WebGLRenderer();
+    const renderer = new THREE.WebGLRenderer({ alpha: true });
     renderer.setSize(width, height);
     currentRef.appendChild(renderer.domElement);
 
