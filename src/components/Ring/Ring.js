@@ -83,11 +83,13 @@ const Ring = ({ currentGem }) => {
     let currentGemScene = null;
     const changeGem = (gemName) => {
       for (let i = 0; i < gems.children.length; i++) {
-        if (gems.children[i].name.includes(gemName)) {
+        if (gems.children[i].name.includes(gemName.name)) {
           currentGemScene = gems.children[i];
         }
       }
-      scene.add(currentGemScene);
+      if (currentGemScene !== null) {
+        scene.add(currentGemScene);
+      }
     };
 
     controls.current = { changeGem };
@@ -118,6 +120,10 @@ const Ring = ({ currentGem }) => {
       currentRef.removeChild(renderer.domElement);
     };
   }, []);
+
+  useEffect(() => {
+    controls.current.changeGem(currentGem);
+  }, [currentGem]);
 
   return (
     <div
