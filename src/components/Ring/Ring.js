@@ -2,7 +2,7 @@ import { useRef, useEffect } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
-const Template = () => {
+const Ring = () => {
   const mountRef = useRef(null);
 
   useEffect(() => {
@@ -58,9 +58,9 @@ const Template = () => {
     <div
       className="Contenedor3D"
       ref={mountRef}
-      style={{ width: "100%", height: "100vh" }}
+      style={{ width: "60%", height: "100%" }}
     ></div>
   );
 };
 
-export default Template;
+export default Ring;
