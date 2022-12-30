@@ -36,6 +36,18 @@ const Ring = () => {
     };
     window.addEventListener("resize", resize);
 
+    // envMap
+
+    const cubeTextureLoader = new THREE.CubeTextureLoader();
+    const env = cubeTextureLoader.load([
+      "./model/envMap/px.png",
+      "./model/envMap/nx.png",
+      "./model/envMap/ny.png",
+      "./model/envMap/nz.png",
+      "./model/envMap/py.png",
+      "./model/envMap/pz.png",
+    ]);
+
     // Loaders
     const dracoLoader = new DRACOLoader();
     dracoLoader.setDecoderPath("./draco/");
