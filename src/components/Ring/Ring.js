@@ -55,19 +55,23 @@ const Ring = () => {
     const gltfLoader = new GLTFLoader();
     gltfLoader.setDRACOLoader(dracoLoader);
     gltfLoader.load("./model/RingDraco/ringDraco.gltf", (gltf) => {
-      scene.add(gltf.scene);
+      while (gltf.scene.children.length) {
+        gltf.scene.children[0].material.envMap = env;
+        scene.add(gltf.scene.children[0]);
+      }
+      // scene.add(gltf.scene);
     });
 
     // Lights
 
-    const ambientalLight = new THREE.AmbientLight(0xffffff, 1);
+    const ambientalLight = new THREE.AmbientLight(0xffffff, 0.2);
     scene.add(ambientalLight);
 
-    const poinLights = new THREE.DirectionalLight(0xffffff, 20);
+    const poinLights = new THREE.DirectionalLight(0xffffff, 1);
     poinLights.position.set(100, 100, 100);
     scene.add(poinLights);
 
-    const poinLights2 = new THREE.DirectionalLight(0xffffff, 20);
+    const poinLights2 = new THREE.DirectionalLight(0xffffff, 1);
     poinLights2.position.set(-100, -100, -100);
     scene.add(poinLights2);
 
