@@ -1,7 +1,7 @@
 import React from "react";
 import { OptionGemContainer, OptionGemDetails } from "./Gem.elements";
 
-const Gem = () => {
+const Gem = ({ setCurrentGem }) => {
   return (
     <OptionGemContainer>
       <h2>Gems Options</h2>
