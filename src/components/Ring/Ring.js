@@ -48,7 +48,13 @@ const Ring = () => {
       "./model/envMap/pz.png",
     ]);
 
+    // Groups
+
+    const gems = new THREE.Group();
+    const ring = new THREE.Group();
+
     // Loaders
+
     const dracoLoader = new DRACOLoader();
     dracoLoader.setDecoderPath("./draco/");
 
@@ -57,7 +63,14 @@ const Ring = () => {
     gltfLoader.load("./model/RingDraco/ringDraco.gltf", (gltf) => {
       while (gltf.scene.children.length) {
         gltf.scene.children[0].material.envMap = env;
-        scene.add(gltf.scene.children[0]);
+
+        if (gltf.scene.children[0].name.includes("gem")) {
+          gems.add(gltf.scene.children[0]);
+        } else {
+          ring.add(gltf.scene.children[0]);
+        }
+
+        scene.add(ring);
       }
       // scene.add(gltf.scene);
     });
