@@ -81,10 +81,14 @@ const Ring = ({ currentGem }) => {
     // Controls
     // Change gem
     let currentGemScene = null;
+
     const changeGem = (gemName) => {
+      scene.remove(currentGemScene);
+      currentGemScene = null;
+
       for (let i = 0; i < gems.children.length; i++) {
         if (gems.children[i].name.includes(gemName.name)) {
-          currentGemScene = gems.children[i];
+          currentGemScene = gems.children[i].clone();
         }
       }
       if (currentGemScene !== null) {
