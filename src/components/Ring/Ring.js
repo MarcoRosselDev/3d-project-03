@@ -4,8 +4,10 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 
-const Ring = () => {
+const Ring = ({ currentGem }) => {
   const mountRef = useRef(null);
+
+  console.log(currentGem);
 
   useEffect(() => {
     //Data from the canvas
