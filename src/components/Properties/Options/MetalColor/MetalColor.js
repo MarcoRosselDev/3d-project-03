@@ -4,7 +4,7 @@ import {
   OptionMetalColorDetails,
 } from "./MetalColor.elements";
 
-const MetalColor = () => {
+const MetalColor = ({ setCurrentRingColor }) => {
   return (
     <OptionMetalColorContainer>
       <h2>Metal Color Options</h2>

@@ -8,8 +8,6 @@ const Ring = ({ currentGem }) => {
   const mountRef = useRef(null);
   const controls = useRef(null);
 
-  console.log(currentGem);
-
   useEffect(() => {
     //Data from the canvas
     const currentRef = mountRef.current;
