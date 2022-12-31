@@ -4,7 +4,7 @@ import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { DRACOLoader } from "three/examples/jsm/loaders/DRACOLoader";
 
-const Ring = ({ currentGem, currentRingColor }) => {
+const Ring = ({ currentGem, currentRingColor, currentRingTextures }) => {
   const mountRef = useRef(null);
   const controls = useRef(null);
 
@@ -101,7 +101,17 @@ const Ring = ({ currentGem, currentRingColor }) => {
       }
     };
 
-    controls.current = { changeGem, changeRingColor };
+    // change textures
+    const changeRingTexture = (textures) => {
+      if (ring.children[0]) {
+        ring.children[0].material.map = textures.base;
+        ring.children[0].material.normalMap = textures.normal;
+        ring.children[0].material.roughnessMap = textures.roughness;
+        ring.children[0].material.needsUpdate = true;
+      }
+    };
+
+    controls.current = { changeGem, changeRingColor, changeRingTexture };
 
     // Lights
 
@@ -137,6 +147,10 @@ const Ring = ({ currentGem, currentRingColor }) => {
   useEffect(() => {
     controls.current.changeRingColor(currentRingColor);
   }, [currentRingColor]);
+
+  useEffect(() => {
+    controls.current.changeRingTexture(currentRingTextures);
+  }, [currentRingTextures]);
 
   return (
     <div
