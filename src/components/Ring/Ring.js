@@ -8,8 +8,6 @@ const Ring = ({ currentGem, currentRingColor }) => {
   const mountRef = useRef(null);
   const controls = useRef(null);
 
-  console.log(currentRingColor);
-
   useEffect(() => {
     //Data from the canvas
     const currentRef = mountRef.current;
