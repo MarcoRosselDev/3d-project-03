@@ -8,12 +8,12 @@ import * as THREE from "three";
 const RingTexture = ({ setCurrentRingTextures }) => {
   const textureLoader = new THREE.TextureLoader();
 
-  const handleRingTextures = () => {
+  const handleRingTextures = (folder) => {
     setCurrentRingTextures({
-      base: textureLoader.load("./model/textures/1/base.png"),
-      normal: textureLoader.load("./model/textures/1/normal.png"),
+      base: textureLoader.load(`./model/textures/${folder}/base.png`),
+      normal: textureLoader.load(`./model/textures/${folder}/normal.png`),
       roughness: textureLoader.load(
-        "./model/textures/1/roughness_metalness.png"
+        `./model/textures/${folder}/roughness_metalness.png`
       ),
     });
   };
@@ -22,10 +22,10 @@ const RingTexture = ({ setCurrentRingTextures }) => {
     <OptionEngravingContainer>
       <h2>Metal Engraving</h2>
       <OptionEngravingDetail>
-        <h4 onClick={() => handleRingTextures()}>Option 1</h4>
-        <h4 onClick={() => handleRingTextures()}>Option 2</h4>
-        <h4 onClick={() => handleRingTextures()}>Option 3</h4>
-        <h4 onClick={() => handleRingTextures()}>Option 4</h4>
+        <h4 onClick={() => handleRingTextures("1")}>Option 1</h4>
+        <h4 onClick={() => handleRingTextures("2")}>Option 2</h4>
+        <h4 onClick={() => handleRingTextures("3")}>Option 3</h4>
+        <h4 onClick={() => handleRingTextures("4")}>Option 4</h4>
       </OptionEngravingDetail>
     </OptionEngravingContainer>
   );
