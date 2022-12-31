@@ -6,6 +6,11 @@ import Ring from "../Ring/Ring";
 const Menu = () => {
   const [currentGem, setCurrentGem] = useState({ name: "" });
   const [currentRingColor, setCurrentRingColor] = useState({ color: "" });
+  const [currentRingTextures, setCurrentRingTextures] = useState({
+    base: "",
+    normal: "",
+    roughness: "",
+  });
 
   return (
     <GeneralContainer>
@@ -13,8 +18,13 @@ const Menu = () => {
         <Properties
           setCurrentGem={setCurrentGem}
           setCurrentRingColor={setCurrentRingColor}
+          setCurrentRingTextures={setCurrentRingTextures}
         />
-        <Ring currentGem={currentGem} currentRingColor={currentRingColor} />
+        <Ring
+          currentGem={currentGem}
+          currentRingColor={currentRingColor}
+          currentRingTextures={currentRingTextures}
+        />
       </Wrapper>
     </GeneralContainer>
   );
