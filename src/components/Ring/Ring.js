@@ -96,7 +96,14 @@ const Ring = ({ currentGem, currentRingColor }) => {
       }
     };
 
-    controls.current = { changeGem };
+    // change color
+    const changeRingColor = (newColor) => {
+      if (ring.children[0]) {
+        ring.children[0].material.color.set(newColor);
+      }
+    };
+
+    controls.current = { changeGem, changeRingColor };
 
     // Lights
 
@@ -127,7 +134,8 @@ const Ring = ({ currentGem, currentRingColor }) => {
 
   useEffect(() => {
     controls.current.changeGem(currentGem);
-  }, [currentGem]);
+    controls.current.changeRingColor("#DAA520");
+  }, [currentGem, currentRingColor]);
 
   return (
     <div
