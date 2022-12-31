@@ -4,14 +4,18 @@ import Gem from "./Options/Gem/Gem";
 import MetalColor from "./Options/MetalColor/MetalColor";
 import RingTexture from "./Options/RingTexture/RingTexture";
 
-const Properties = ({ setCurrentGem, setCurrentRingColor }) => {
+const Properties = ({
+  setCurrentGem,
+  setCurrentRingColor,
+  setCurrentRingTextures,
+}) => {
   return (
     <PropertiesContainer>
       <PropertiesWrapper>
         <h1>Custom Rings</h1>
         <Gem setCurrentGem={setCurrentGem} />
         <MetalColor setCurrentRingColor={setCurrentRingColor} />
-        <RingTexture />
+        <RingTexture setCurrentRingTextures={setCurrentRingTextures} />
       </PropertiesWrapper>
     </PropertiesContainer>
   );
