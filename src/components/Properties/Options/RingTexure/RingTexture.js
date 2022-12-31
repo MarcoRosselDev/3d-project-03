@@ -6,9 +6,9 @@ import {
 import * as THREE from "three";
 
 const RingTexture = ({ setCurrentRingTextures }) => {
-  const textureLoader = new THREE.TextureLoader();
-
   const handleRingTextures = (folder) => {
+    const textureLoader = new THREE.TextureLoader();
+
     setCurrentRingTextures({
       base: textureLoader.load(`./model/textures/${folder}/base.png`),
       normal: textureLoader.load(`./model/textures/${folder}/normal.png`),

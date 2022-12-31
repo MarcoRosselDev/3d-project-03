@@ -101,8 +101,8 @@ const Ring = ({ currentGem, currentRingColor, currentRingTextures }) => {
       }
     };
 
-    // change textures
-    const changeRingTexture = (textures) => {
+    //change textures
+    const changeRingTextures = (textures) => {
       if (ring.children[0]) {
         ring.children[0].material.map = textures.base;
         ring.children[0].material.normalMap = textures.normal;
@@ -111,7 +111,7 @@ const Ring = ({ currentGem, currentRingColor, currentRingTextures }) => {
       }
     };
 
-    controls.current = { changeGem, changeRingColor, changeRingTexture };
+    controls.current = { changeGem, changeRingColor, changeRingTextures };
 
     // Lights
 
@@ -149,7 +149,7 @@ const Ring = ({ currentGem, currentRingColor, currentRingTextures }) => {
   }, [currentRingColor]);
 
   useEffect(() => {
-    controls.current.changeRingTexture(currentRingTextures);
+    controls.current.changeRingTextures(currentRingTextures);
   }, [currentRingTextures]);
 
   return (

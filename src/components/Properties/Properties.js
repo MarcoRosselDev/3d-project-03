@@ -2,7 +2,7 @@ import React from "react";
 import { PropertiesContainer, PropertiesWrapper } from "./Properties.elements";
 import Gem from "./Options/Gem/Gem";
 import MetalColor from "./Options/MetalColor/MetalColor";
-import RingTexture from "./Options/RingTexture/RingTexture";
+import RingTexure from "./Options/RingTexure/RingTexture";
 
 const Properties = ({
   setCurrentGem,
@@ -15,7 +15,7 @@ const Properties = ({
         <h1>Custom Rings</h1>
         <Gem setCurrentGem={setCurrentGem} />
         <MetalColor setCurrentRingColor={setCurrentRingColor} />
-        <RingTexture setCurrentRingTextures={setCurrentRingTextures} />
+        <RingTexure setCurrentRingTextures={setCurrentRingTextures} />
       </PropertiesWrapper>
     </PropertiesContainer>
   );
