@@ -28,6 +28,10 @@ const Ring = ({ currentGem, currentRingColor, currentRingTextures }) => {
     //OrbitControls
     const orbitControls = new OrbitControls(camera, renderer.domElement);
     orbitControls.enableDamping = true;
+    orbitControls.maxDistance = 140;
+    orbitControls.minDistance = 120;
+    orbitControls.maxPolarAngle = Math.PI * 0.5;
+    orbitControls.minPolarAngle = Math.PI * 0.2;
 
     //Resize canvas
     const resize = () => {
@@ -43,19 +47,18 @@ const Ring = ({ currentGem, currentRingColor, currentRingTextures }) => {
     const env = cubeTextureLoader.load([
       "./model/envMap/px.png",
       "./model/envMap/nx.png",
-      "./model/envMap/ny.png",
-      "./model/envMap/nz.png",
       "./model/envMap/py.png",
+      "./model/envMap/ny.png",
       "./model/envMap/pz.png",
+      "./model/envMap/nz.png",
     ]);
-
-    // Groups
-
+    //Grupos
     const gems = new THREE.Group();
     const ring = new THREE.Group();
 
     // Loaders
 
+    //Loaders
     const dracoLoader = new DRACOLoader();
     dracoLoader.setDecoderPath("./draco/");
 
@@ -70,10 +73,9 @@ const Ring = ({ currentGem, currentRingColor, currentRingTextures }) => {
         } else {
           ring.add(gltf.scene.children[0]);
         }
-
         scene.add(ring);
       }
-      // scene.add(gltf.scene);
+      //   scene.add(gltf.scene);
     });
 
     // Controls
@@ -112,19 +114,17 @@ const Ring = ({ currentGem, currentRingColor, currentRingTextures }) => {
     };
 
     controls.current = { changeGem, changeRingColor, changeRingTextures };
-
-    // Lights
-
+    //Lights
     const ambientalLight = new THREE.AmbientLight(0xffffff, 0.2);
     scene.add(ambientalLight);
 
-    const poinLights = new THREE.DirectionalLight(0xffffff, 1);
-    poinLights.position.set(100, 100, 100);
-    scene.add(poinLights);
+    const pointLights = new THREE.DirectionalLight(0xffffff, 1);
+    pointLights.position.set(100, 100, 100);
+    scene.add(pointLights);
 
-    const poinLights2 = new THREE.DirectionalLight(0xffffff, 1);
-    poinLights2.position.set(-100, -100, -100);
-    scene.add(poinLights2);
+    const pointLights1 = new THREE.DirectionalLight(0xffffff, 1);
+    pointLights1.position.set(-100, 100, 100);
+    scene.add(pointLights1);
 
     //Animate the scene
     const animate = () => {
