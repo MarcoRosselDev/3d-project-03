@@ -24,7 +24,6 @@ export const OptionGemDetails = styled.div`
     border: 1px solid #393939;
     border-radius: 5px;
     cursor: pointer;
-
     &:hover {
       background-color: #393939;
       color: #eeeeee;

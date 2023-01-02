@@ -41,8 +41,7 @@ const Ring = ({ currentGem, currentRingColor, currentRingTextures }) => {
     };
     window.addEventListener("resize", resize);
 
-    // envMap
-
+    //envMap
     const cubeTextureLoader = new THREE.CubeTextureLoader();
     const env = cubeTextureLoader.load([
       "./model/envMap/px.png",
@@ -56,11 +55,9 @@ const Ring = ({ currentGem, currentRingColor, currentRingTextures }) => {
     const gems = new THREE.Group();
     const ring = new THREE.Group();
 
-    // Loaders
-
     //Loaders
     const dracoLoader = new DRACOLoader();
-    dracoLoader.setDecoderPath("./draco/");
+    dracoLoader.setDecoderPath("./Draco/");
 
     const gltfLoader = new GLTFLoader();
     gltfLoader.setDRACOLoader(dracoLoader);
@@ -78,10 +75,9 @@ const Ring = ({ currentGem, currentRingColor, currentRingTextures }) => {
       //   scene.add(gltf.scene);
     });
 
-    // Controls
-    // Change gem
+    //Controls
+    //Change gem
     let currentGemScene = null;
-
     const changeGem = (gemName) => {
       scene.remove(currentGemScene);
       currentGemScene = null;
@@ -96,7 +92,7 @@ const Ring = ({ currentGem, currentRingColor, currentRingTextures }) => {
       }
     };
 
-    // change color
+    //change color
     const changeRingColor = (newColor) => {
       if (ring.children[0]) {
         ring.children[0].material.color.set(newColor.color);
@@ -114,6 +110,7 @@ const Ring = ({ currentGem, currentRingColor, currentRingTextures }) => {
     };
 
     controls.current = { changeGem, changeRingColor, changeRingTextures };
+
     //Lights
     const ambientalLight = new THREE.AmbientLight(0xffffff, 0.2);
     scene.add(ambientalLight);
